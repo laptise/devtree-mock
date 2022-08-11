@@ -1,4 +1,4 @@
-import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemText, Stack, Typography } from "@mui/material";
+import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemText, Paper, Stack, Typography } from "@mui/material";
 import type { NextPage } from "next";
 import Layout from "../components/layout";
 import CommentIcon from "@mui/icons-material/Comment";
@@ -25,22 +25,24 @@ const SamplePost: FC<{ post: Post }> = ({ post }) => (
 const Home: NextPage = () => {
   return (
     <Layout>
-      <Stack spacing={2}>
-        <Stack direction={"row"} alignItems="center" width={600} justifyContent="space-between">
-          <Typography variant="h5">게시물</Typography>
-          <Stack direction={"row"} spacing={1}>
-            <Typography variant="body1">인기순</Typography>
-            <Typography variant="body1">최신순</Typography>
-            <Typography variant="body1">주목순</Typography>
+      <Paper sx={{ p: 2 }}>
+        <Stack spacing={2}>
+          <Stack direction={"row"} alignItems="center" width={380} justifyContent="space-between">
+            <Typography variant="h5">게시물</Typography>
+            <Stack direction={"row"} spacing={1}>
+              <Typography variant="body1">인기순</Typography>
+              <Typography variant="body1">최신순</Typography>
+              <Typography variant="body1">주목순</Typography>
+            </Stack>
           </Stack>
+          <Divider />
+          <List>
+            {posts.map((post) => (
+              <SamplePost key={post.title} post={post} />
+            ))}
+          </List>
         </Stack>
-        <Divider />
-        <List>
-          {posts.map((post) => (
-            <SamplePost key={post.title} post={post} />
-          ))}
-        </List>
-      </Stack>
+      </Paper>
     </Layout>
   );
 };

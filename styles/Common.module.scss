@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .main {
@@ -16,8 +17,15 @@
   font-weight: bold;
   padding: 10px;
   justify-content: space-between;
+  width: 100%;
+  background-color: white;
 }
 
 .title {
   font-weight: bold;
+}
+
+.footer {
+  padding: 20px;
+  flex: 1;
 }
